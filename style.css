@@ -1535,6 +1535,8 @@ a {
 
 /*small phones*/
 
+  /* SMALL PHONES */
+@media (max-width: 400px) {
   .hero {
     gap: 22px;
     padding-top: 28px;
@@ -1589,9 +1591,7 @@ a {
   .contact-section {
     padding: 25px 15px;
   }
-
-
-
+}
 /* touchscreen transition*/
 
 @media (hover: none) and (pointer: coarse) {
@@ -1733,3 +1733,110 @@ a {
   }
 }
 
+/* IPHONE AND TOUCHSCREEN ANIMATIONS */
+@media (hover: none) and (pointer: coarse) {
+
+  .button,
+  .nav-button,
+  .send-button,
+  .skill-card,
+  .project-card,
+  .contact-link,
+  .about-tags span,
+  .tags span,
+  .nav-links a,
+  .logo,
+  .hero-description,
+  .image-label {
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .button:active,
+  .nav-button:active,
+  .send-button:active {
+    transform: scale(0.94);
+    background-color: var(--brown-dark);
+    box-shadow: 0 8px 20px #432b2025;
+  }
+
+  .skill-card:active,
+  .project-card:active {
+    transform: scale(0.97);
+    box-shadow: 0 12px 28px #432b2018;
+    border-color: var(--rose);
+  }
+
+  .skill-card:active::before {
+    width: 100%;
+  }
+
+  .skill-card:active .skill-icon {
+    transform: rotate(-6deg) scale(1.06);
+    background: var(--brown-medium);
+    border-radius: 50%;
+  }
+
+  .project-card:active img {
+    transform: scale(1.04);
+    filter: saturate(1.08);
+  }
+
+  .contact-link:active {
+    transform: scale(0.98);
+    background-color: #ffffff19;
+    border-color: #edc9a9;
+  }
+
+  .about-tags span:active,
+  .tags span:active {
+    transform: scale(0.96);
+    background-color: var(--brown-medium);
+    color: white;
+  }
+
+  .nav-links a:active {
+    color: var(--brown-light);
+  }
+
+  .nav-links a:active::after {
+    width: 100%;
+  }
+
+  .hero-image:active img {
+    filter: saturate(1.05);
+    box-shadow: 0 28px 50px #432b2025;
+  }
+
+  .image-label:active {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+}
+
+/* KEEP ANIMATIONS ON IPHONE */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-text {
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-image {
+    animation: fadeIn 1s ease both;
+  }
+
+  .hero-image img {
+    animation: floatImage 5s ease-in-out infinite;
+  }
+
+  .image-decoration {
+    animation: softPulse 4s ease-in-out infinite;
+  }
+
+  .section-heading {
+    animation: fadeUp 0.7s ease both;
+  }
+}
