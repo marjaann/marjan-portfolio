@@ -1840,3 +1840,57 @@ a {
     animation: fadeUp 0.7s ease both;
   }
 }
+
+
+/* ABOUT + SKILLS: CSS-only reveal while scrolling (supported browsers) */
+@keyframes revealOnScroll {
+  from {
+    opacity: 0.35;
+    translate: 0 28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .about-section,
+  .skills-section {
+    animation: revealOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 45%;
+  }
+
+  .skills-grid .skill-card {
+    animation: revealOnScroll linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Make About/Skills respond to a touch on iPhone too */
+@media (hover: none) and (pointer: coarse) {
+  .about-section {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .about-section:active {
+    transform: scale(0.995);
+    border-color: var(--rose);
+    box-shadow: var(--shadow);
+  }
+
+  .skills-section:active {
+    border-color: var(--rose);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section,
+  .skills-section,
+  .skills-grid .skill-card {
+    animation: none !important;
+    translate: none !important;
+  }
+}
