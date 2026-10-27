@@ -1894,3 +1894,27 @@ a {
     translate: none !important;
   }
 }
+/* Make hover effects work on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .skill-card:active,
+  .project-card:active,
+  .about-section:active {
+      transform: scale(0.97);
+      box-shadow: 0 12px 28px rgba(67, 43, 32, 0.15);
+      border-color: var(--rose);
+      transition: all 0.3s ease;
+  }
+
+  .skill-card:active .skill-icon {
+      transform: scale(1.12) rotate(-6deg);
+      transition: transform 0.3s ease;
+  }
+}
+
+/* Keep smooth transitions */
+.skill-card,
+.project-card,
+.about-section,
+.skill-icon {
+  transition: all 0.3s ease;
+}س
