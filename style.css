@@ -1709,5 +1709,27 @@ a {
     transform: rotate(-3deg) scale(1.04);
   }
 }
+ 
+/* Touchscreen interactions */
 
+@media (hover: none) and (pointer: coarse) {
+  .button:active,
+  .nav-button:active,
+  .send-button:active,
+  .skill-card:active,
+  .project-card:active,
+  .contact-link:active {
+    transform: scale(0.97);
+    transition: transform 0.2s ease;
+  }
+
+  .button,
+  .nav-button,
+  .send-button,
+  .skill-card,
+  .project-card,
+  .contact-link {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
 
